@@ -1,0 +1,475 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .content {
+                padding: 1rem;
+            }
+
+            .content__sections__chat {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__context {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__render {
+                min-height: 50vh;
+            }
+
+            .content__sections__chat__render .item {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__render .item__user__message > textarea {
+                background-color: #ccc;
+                border: none;
+                border-radius: 1rem;
+            }
+
+            .content__sections__chat__render .item__user__options {
+                display: grid;
+                grid-template-columns: 1fr max-content max-content;
+            }
+
+            .content__sections__chat__render .item__user__options__insert {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__render .item__user__options__delete {
+                padding: 1rem;
+                color: var(--theme__red);
+            }
+
+            .content__sections__chat__render .item__user__options__delete:hover {
+                color: #000;
+            }
+
+            .content__sections__chat__render .item__assistant__message > textarea {
+                background-color: var(--theme);
+                border: none;
+                border-radius: 1rem;
+            }
+
+            .content__sections__chat__render .item__assistant__options {
+                display: grid;
+                grid-template-columns: max-content 1fr;
+            }
+
+            .content__sections__chat__render .item__assistant__options__reload {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__reply {
+                display: grid;
+                grid-template-columns: 1fr max-content max-content;
+            }
+
+            .content__sections__chat__reply__input {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__reply__send {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__reply__send > span {
+                font-size: 3rem;
+            }
+
+            .content__sections__chat__reply__add {
+                padding: 1rem;
+            }
+
+            .content__sections__chat__reply__add > span {
+                font-size: 3rem;
+            }
+
+            .content__sections__settings {
+                padding: 1rem;
+            }
+
+            .content__sections__settings__close {
+                display: grid;
+                grid-template-columns: 1fr max-content;
+            }
+
+            .content__sections__settings__close__button {
+                padding: 1rem;
+            }
+
+            .content__sections__settings__close__button > span {
+                font-size: 3rem;
+            }
+
+            .content__sections__settings__apikey {
+                padding: 1rem;
+            }
+
+            .content__sections__settings__apikey__label {
+                padding: 1rem;
+            }
+
+            .content__sections__settings__apikey__input {
+                padding: 1rem;
+            }
+
+            .content__sections__settings__clear {
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="-header">
+                <div class="-header__logo" onclick="btnLogo(this)">
+                    <img src="assets/dolphin-small.png">
+                </div>
+                <div></div>
+                <div class="-header__save -header__button -button--icon -center--flex" onclick="btnSave(this)">
+                    <span class="material-symbols-rounded">
+                        save
+                    </span>
+                </div>
+                <div class="-header__load -header__button -button--icon -center--flex" onclick="btnLoad(this)">
+                    <span class="material-symbols-rounded">
+                        upload_file
+                    </span>
+                </div>
+                <div class="-header__settings -header__button -button--icon -center--flex" onclick="btnSettings(this)">
+                    <span class="material-symbols-rounded">
+                        settings
+                    </span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content__sections">
+                    <div class="content__sections__chat content__section">
+                        <div class="content__sections__chat__context">
+                            <textarea class="-textarea -script__textarea" placeholder="Enter chat context..."></textarea>
+                        </div>
+                        <div class="content__sections__chat__render">
+                            <div class="item">
+                                <div class="item__user">
+                                    <div class="item__user__message">
+                                        <textarea class="-textarea -script__textarea"></textarea>
+                                    </div>
+                                    <div class="item__user__options">
+                                        <div></div>
+                                        <div class="item__user__options__insert -button--icon" onclick="btnInsert(this)">
+                                            <span class="material-symbols-rounded">
+                                                arrow_insert
+                                            </span>
+                                        </div>
+                                        <div class="item__user__options__delete -button--icon" onclick="btnDelete(this)">
+                                            <span class="material-symbols-rounded">
+                                                delete
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item__assistant">
+                                    <div class="item__assistant__message">
+                                        <textarea class="-textarea -script__textarea"></textarea>
+                                    </div>
+                                    <div class="item__assistant__options">
+                                        <div class="item__assistant__options__reload -button--icon" onclick="btnReload(this)">
+                                            <span class="material-symbols-rounded">
+                                                refresh
+                                            </span>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content__sections__chat__reply">
+                            <div class="content__sections__chat__reply__input">
+                                <textarea class="-textarea -script__textarea" placeholder="Enter a message..."></textarea>
+                            </div>
+                            <div class="content__sections__chat__reply__send -button--icon -center--flex" onclick="btnSend(this)">
+                                <span class="material-symbols-rounded">
+                                    send
+                                </span>
+                            </div>
+                            <div class="content__sections__chat__reply__add -button--icon -center--flex" onclick="btnAdd(this)">
+                                <span class="material-symbols-rounded">
+                                    add
+                                </span>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__sections__settings content__section">
+                        <div class="content__sections__settings__close">
+                            <div></div>
+                            <div class="content__sections__settings__close__button -button--icon" onclick="btnSettingsClose(this)">
+                                <span class="material-symbols-rounded">
+                                    close
+                                </span>
+                            </div>
+                        </div>
+                        <div class="content__sections__settings__apikey">
+                            <div class="content__sections__settings__apikey__label">
+                                NLP Cloud Api Key:
+                            </div>
+                            <div class="content__sections__settings__apikey__input">
+                                <input class="-input">
+                            </div>
+                        </div>
+                        <div class="content__sections__settings__clear -center">
+                            <button class="-button" onclick="btnClear(this)">
+                                Clear Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+    <script>
+        let templates = {
+            chat: document.querySelector(".content__sections__chat__render").innerHTML
+        }
+
+        setClassTextarea();
+        let data = localStorage.getItem("chatdolphin__data");
+
+        if (data == null) {
+            data = {
+                context: "",
+                history: [],
+                apikey: ""
+            }
+
+            localStorage.setItem("chatdolphin__data", JSON.stringify(data));
+        } else {
+            data = JSON.parse(data);
+        }
+
+        updateContent();
+        btnSettingsClose(null);
+        window.scrollTo(0, document.body.scrollHeight);
+
+        function updateData() {
+            data.context = document.querySelector(".content__sections__chat__context > textarea").value;
+            data.history = [];
+            
+            for (let element of document.querySelectorAll(".content__sections__chat__render > .item")) {
+                let newHistory = {
+                    input: "",
+                    response: ""
+                }
+
+                newHistory.input = element.querySelector(".item__user__message > textarea").value;
+
+                if (element.querySelector(".item__assistant__message > textarea") != null) {
+                    newHistory.response = element.querySelector(".item__assistant__message > textarea").value;
+                }
+
+                data.history.push(newHistory);
+            }
+
+            data.apikey = document.querySelector(".content__sections__settings__apikey__input > input").value;
+        }
+
+        function saveData() {
+            localStorage.setItem("chatdolphin__data", JSON.stringify(data));
+        }
+
+        function updateContent() {
+            document.querySelector(".content__sections__chat__context > textarea").value = data.context;
+            document.querySelector(".content__sections__chat__render").innerHTML = "";
+
+            for (let element of data.history) {
+                let item = document.createElement("div");
+                item.innerHTML = templates.chat;
+                item = item.querySelector(".item");
+                item.querySelector(".item__user__message > textarea").value = element.input;
+                item.querySelector(".item__assistant__message > textarea").value = element.response;
+                document.querySelector(".content__sections__chat__render").appendChild(item);
+            }
+
+            document.querySelector(".content__sections__settings__apikey__input > input").value = data.apikey;
+            setClassTextarea();
+        }
+
+        function btnLogo(element) {
+            location.href = "./";
+        }
+
+        function btnSave(element) {
+            updateData();
+            saveData();
+
+            let save = {
+                context: data.context,
+                history: data.history
+            }
+
+            saveJSONToFile(save, getCurrentDateTime());
+        }
+
+        function btnLoad(element) {
+            readJSONFile((res) => {
+                data.context = res.context;
+                data.history = res.history;
+                saveData();
+                updateContent();
+                btnSettingsClose(null);
+            })
+        }
+
+        function btnSettings(element) {
+            updateData();
+            saveData();
+
+            for (element of document.querySelectorAll(".content__section")) {
+                element.style.display = "none";
+            }
+
+            document.querySelector(".content__sections__settings").style.display = "";
+            updateContent();
+        }
+
+        function btnInsert(element) {
+            let item = document.createElement("div");
+            item.innerHTML = templates.chat;
+            item = item.querySelector(".item");
+            element = element.parentElement.parentElement.parentElement;
+            element.parentElement.insertBefore(item, element);
+            updateData();
+            saveData();
+        }
+
+        function btnDelete(element) {
+            if (confirm("Are you sure you want to delete this message? The reply will also be deleted") == false) {
+                return;
+            }
+
+            element.parentElement.parentElement.parentElement.remove();
+            updateData();
+            saveData();
+        }
+
+        function btnReload(element) {
+            updateData();
+            element = element.parentElement.parentElement.parentElement;
+            let input = element.querySelector(".item__user__message > textarea").value;
+            let previous = selectSiblingsBefore(element);
+            let history = [];
+
+            for (let element2 of previous) {
+                history.push({
+                    input: element2.querySelector(".item__user__message > textarea").value,
+                    response: element2.querySelector(".item__assistant__message > textarea").value
+                })
+            }
+
+            element.querySelector(".item__assistant__message > textarea").value = "";
+
+            let body = {
+                input: input,
+                context: data.context,
+                history: history
+            }
+
+            console.log(body);
+
+            fetch("https://api.nlpcloud.io/v1/gpu/chatdolphin/chatbot", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Token " + data.apikey
+                },
+                body: JSON.stringify(body)
+            }).then(res => res.json()).then(
+                res => {
+                    console.log(res);
+                    element.querySelector(".item__assistant__message > textarea").value = res.response;
+                    updateData();
+                    saveData();
+                }
+            )
+        }
+
+        function btnSend(element) {
+            updateData();
+            element.style.visibility = "hidden";
+            document.querySelector(".content__sections__chat__reply__add").style.visibility = "hidden";
+            let input = document.querySelector(".content__sections__chat__reply__input > textarea").value;
+            document.querySelector(".content__sections__chat__reply__input > textarea").value = "";
+            let item = document.createElement("div");
+            item.innerHTML = templates.chat;
+            item = item.querySelector(".item");
+            item.querySelector(".item__assistant").remove();
+            item.querySelector(".item__user__message > textarea").value = input;
+            document.querySelector(".content__sections__chat__render").appendChild(item);
+
+            let body = {
+                input: input,
+                context: data.context,
+                history: data.history
+            }
+
+            console.log(body);
+            window.scrollTo(0, document.body.scrollHeight);
+
+            fetch("https://api.nlpcloud.io/v1/gpu/chatdolphin/chatbot", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Token " + data.apikey
+                },
+                body: JSON.stringify(body)
+            }).then(res => res.json()).then(
+                res => {
+                    console.log(res);
+                    data.history = res.history;
+                    saveData();
+                    updateContent();
+                    element.style.visibility = "";
+                    document.querySelector(".content__sections__chat__reply__add").style.visibility = "";
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
+            )
+        }
+
+        function btnAdd(element) {
+            let item = document.createElement("div");
+            item.innerHTML = templates.chat;
+            item = item.querySelector(".item");
+            document.querySelector(".content__sections__chat__render").appendChild(item);
+            updateData();
+            saveData();
+        }
+
+        function btnSettingsClose(element) {
+            updateData();
+            saveData();
+
+            for (element of document.querySelectorAll(".content__section")) {
+                element.style.display = "none";
+            }
+
+            document.querySelector(".content__sections__chat").style.display = "";
+            updateContent();
+            document.body.scrollTop = document.body.scrollHeight;
+        }
+
+        function btnClear(element) {
+            if (confirm("This will RESET everything! Any unsaved data will be lost! Continue?") == false) {
+                return;
+            }
+
+            data.context = "";
+            data.history = [];
+            saveData();
+            updateContent();
+            btnSettingsClose(null);
+        }
+    </script>
+</html>
