@@ -1,18 +1,20 @@
 # chatdolphin-webui
 My attempt at improving [NLP Cloud's ChatDolphin web UI](https://chat.nlpcloud.com/)
 
-## Features
-### Improved UI
-UI is improved.
+## Key Features
 
-### Saving/Loading
-Conversations can be saved and loaded as JSON files.
-
-### Data persistence
-Conversations will not be erased when the page is refreshed or closed.
-
-### Context input
-The context parameter can be utilized which gives additional details like the mood of the characters, facts about the persons involved, historical details, etc. and aids the AI on how they should respond.
-
-### Custom messages
-Conversations can be manually added which allows for few-shot learning and aids the AI on how they should respond.
+- **Improved UI:** Redesigned and optimized for better usability and visual appeal.
+  
+- **Context Input:** Users can provide additional details such as mood, historical context, etc., enhancing AI understanding for more relevant responses.
+  
+- **Custom Dialogue:** Users can manually add conversations which allows for few-shot learning, guiding the AI for tailored interactions.
+  
+- **Message Editing:** Users can edit messages to steer conversations as desired.
+  
+- **Message Deletion:** Allows users to backtrack and refine dialogue points as needed.
+  
+- **Message Reloading:** Users can prompt alternative AI responses by reloading messages.
+  
+- **Saving/Loading Conversations:** Enables users to save and load conversations as JSON files for future use.
+  
+- **Data Persistence:** Conversations are persistently stored for seamless continuity across sessions.
