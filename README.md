@@ -22,6 +22,6 @@ My attempt at making an enhanced version of [NLP Cloud's ChatDolphin web UI](htt
 
 ## Usage
 
-To start chatting with the ChatDolphin Web UI, you will need an NLP Cloud API Token.
+To start chatting with this ChatDolphin Web UI, you will need an NLP Cloud API Token.
 
 If you don't have an API Token yet, you can obtain one [here](https://nlpcloud.com/home/token).
