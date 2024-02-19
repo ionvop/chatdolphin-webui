@@ -1,5 +1,6 @@
 # chatdolphin-webui
-My attempt at improving [NLP Cloud's ChatDolphin web UI](https://chat.nlpcloud.com/)
+
+My attempt at making an enhanced version of [NLP Cloud's ChatDolphin web UI](https://chat.nlpcloud.com/)
 
 ## Key Features
 
@@ -15,6 +16,12 @@ My attempt at improving [NLP Cloud's ChatDolphin web UI](https://chat.nlpcloud.c
   
 - **Message Reloading:** Users can prompt alternative AI responses by reloading messages.
   
-- **Saving/Loading Conversations:** Enables users to save and load conversations as JSON files for future use.
+- **Saving/Loading Conversations:** Enables users to save and load conversations as JSON files for future visit.
   
 - **Data Persistence:** Conversations are persistently stored for seamless continuity across sessions.
+
+## Usage
+
+To start chatting with the ChatDolphin Web UI, you will need an NLP Cloud API Token.
+
+If you don't have an API Token yet, you can obtain one [here](https://nlpcloud.com/home/token).
