@@ -235,7 +235,6 @@
             chat: document.querySelector(".content__sections__chat__render").innerHTML
         }
 
-        setClassTextarea();
         let data = localStorage.getItem("chatdolphin__data");
 
         if (data == null) {
@@ -253,6 +252,23 @@
         updateContent();
         btnSettingsClose(null);
         window.scrollTo(0, document.body.scrollHeight);
+
+        setInterval(() => {
+            for (let element of document.querySelectorAll(".-script__textarea")) {
+                if (element.getAttribute("data-stretch") != "yes") {
+                    element.style.resize = "none";
+                    element.style.overflowY = "hidden";
+                    element.style.height = "auto";
+                    element.style.height = element.scrollHeight + "px";
+
+                    element.oninput = () => {
+                        element.style.height = "auto";
+                        element.style.height = element.scrollHeight + "px";
+                        element.setAttribute("data-stretch", "yes");
+                    }
+                }
+            }
+        }, 100);
 
         function updateData() {
             data.context = document.querySelector(".content__sections__chat__context > textarea").value;

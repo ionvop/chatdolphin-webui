@@ -1,17 +1,3 @@
-function setClassTextarea() {
-    for (let element of document.querySelectorAll(".-script__textarea")) {
-        element.style.resize = "none";
-        element.style.overflowY = "hidden";
-        element.style.height = "auto";
-        element.style.height = element.scrollHeight + "px";
-
-        element.oninput = () => {
-            element.style.height = "auto";
-            element.style.height = element.scrollHeight + "px";
-        }
-    }
-}
-
 function selectSiblingsBefore(element) {
     const siblings = [];
     let sibling = element.previousSibling;
