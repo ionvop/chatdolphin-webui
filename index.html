@@ -260,11 +260,11 @@
                     element.style.overflowY = "hidden";
                     element.style.height = "auto";
                     element.style.height = element.scrollHeight + "px";
+                    element.setAttribute("data-stretch", "yes");
 
                     element.oninput = () => {
                         element.style.height = "auto";
                         element.style.height = element.scrollHeight + "px";
-                        element.setAttribute("data-stretch", "yes");
                     }
                 }
             }
